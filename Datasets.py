@@ -1,6 +1,8 @@
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
+from tqdm import tqdm
+from collections import defaultdict
 
 class InitDataset():
     def __init__(self, rating_file='Epinion/processed_data/full_ratings2.csv', profile_file='Epinion/original_dataset/profileAll.csv', user_dict_file = 'Epinion/processed_data/user_dict.txt'):
@@ -9,8 +11,13 @@ class InitDataset():
         self.user_dict = self._get_user_dict(user_dict_file)
         self.filtered_rating_df = self._get_filtered_rating_df()
 
+    def describe(self):
+        return self.filtered_rating_df['user'].max()+1, self.filtered_rating_df['item'].max()+1, self.filtered_rating_df['rating'].nunique()+1
+
     def _get_rating(self, rating_file):
         rating_df = pd.read_csv(rating_file, header=0)
+        rating_df['user'] = rating_df['user'].astype(int)
+        rating_df['item'] = rating_df['item'].astype(int)
         return rating_df
     
     def _get_user(self, profile_file):
@@ -64,6 +71,25 @@ class InitDataset():
         test_df = pd.concat(test_set, ignore_index=True)
         
         return train_df, validation_df, test_df
+    
+    def get_history_lists(self, train_df, index1, index2): # 
+        history_u_lists, history_ur_lists = {}, {}
+        print("Getting history lists ...")
+        for user in tqdm(set(train_df[index1])):
+            history_u_lists[user] = list(set(train_df[train_df[index1] == user][index2]))
+            history_ur_lists[user] = list(train_df[train_df[index1] == user]['rating'])
+        return history_u_lists, history_ur_lists
+
+    def get_social_adj_lists(self, social_adj_file='Epinion/processed_data/trust_rel.txt'):
+        social_adj_lists = defaultdict(set)
+        with open(social_adj_file, 'r') as file:
+            file_contents = file.read()
+        parsed_file_content = eval(file_contents) 
+        for key, value in parsed_file_content.items():
+            # social_adj_lists[int(key)].add(tuple(value))
+            for item in value:
+                social_adj_lists[int(key)].add(item)
+        return social_adj_lists
 
 
 class EpinionDataset(Dataset):
