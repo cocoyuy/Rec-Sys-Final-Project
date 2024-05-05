@@ -114,7 +114,7 @@ def main():
 
     # load dataset
     ds = InitDataset()
-    train_df, validation_df, test_df = ds.split_train_test(0.1, 0.1) # valid and test portion in 0-1
+    train_df, validation_df, test_df = ds.split_train_test() # leave one out # train df 536949; valid df 16597; test df 16597
     history_u_lists, history_ur_lists = ds.get_history_lists(train_df,'user','item')
     history_v_lists, history_vr_lists = ds.get_history_lists(train_df,'item','user')
     social_adj_lists = ds.get_social_adj_lists()
