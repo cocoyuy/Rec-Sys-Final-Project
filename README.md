@@ -1,8 +1,4 @@
-
-
----
-
-# GraphRec Fairness Evaluation
+# Evaluating Fairness in Socially-Enhanced Recommendation System
 
 This repository contains the code and documentation for evaluating the fairness of the GraphRec recommendation system. We aim to assess how the inclusion of social network features in recommendation algorithms might introduce biases, particularly with respect to user demographics and popularity.
 
@@ -42,7 +38,3 @@ pip install -r requirements.txt
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-You can customize this README template according to your specific project details and requirements. Make sure to include relevant information about the project structure, usage instructions, contributors, and licensing.
