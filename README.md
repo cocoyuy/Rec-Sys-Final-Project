@@ -14,7 +14,7 @@ This repository contains the code and documentation for evaluating the fairness 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/Rec-Sys-Final-Project.git
+git clone https://github.com/xiaocheny1209/Rec-Sys-Final-Project.git
 cd Rec-Sys-Final-Project
 ```
 
