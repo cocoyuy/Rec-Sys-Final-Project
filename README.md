@@ -6,7 +6,7 @@ This repository contains the code and documentation for evaluating the fairness 
 
 - `data/`: Contains the datasets used for evaluation, including the Epinion dataset and cleaned data required for analysis.
 - `code/`: Contains the Python scripts used for reproducing the GraphRec model and conducting bias evaluations.
-- `results/`: Contains the results of bias evaluations, including tables, charts, and statistical analyses.
+- `graphs/`: Contains the results of bias evaluations, including tables, charts, and statistical analyses.
 - `docs/`: Contains a detailed analysis report
 
 ## Usage
