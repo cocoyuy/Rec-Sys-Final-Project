@@ -40,11 +40,4 @@ pip install -r requirements.txt
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Reference
-@inproceedings{fan2019graph,
-  title={Graph Neural Networks for Social Recommendation},
-  author={Fan, Wenqi and Ma, Yao and Li, Qing and He, Yuan and Zhao, Eric and Tang, Jiliang and Yin, Dawei},
-  booktitle={The World Wide Web Conference},
-  pages={417--426},
-  year={2019},
-  organization={ACM}
-}
+Wenqi Fan, Yao Ma, Qing Li, Yuan He, Eric Zhao, Jiliang Tang, and Dawei Yin. Graph neural networks for social recommendation. In The World Wide Web Conference, pages 417–426. ACM, 2019.
